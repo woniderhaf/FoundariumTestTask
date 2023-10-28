@@ -53,25 +53,23 @@ const Main = ({navigation}:Props) => {
   useEffect(() => {
 
     requestData()
-    navigation.setOptions({
-      headerShown:true,
-      // headerBackVisible:false
-    })
-
     return () => {
       // одписываемся от таймера   
       clearInterval(timer.current)
     }
 
 
-
   },[])
 
   const CardClick = React.useCallback((item:ITask) => {
-    Alert.alert(item.name)
+    Alert.alert(item.name,item.description ?? "нет описания")
+
+    //  функция, которая отфильтровывает ненужные ключи
     const filterTask = (item:ITask):IAddCard => {
-      return {...item}
-    }
+      const {card_id,photo_required,schedule,...returnItem} = item
+      return returnItem
+    } 
+    
     AddCard(filterTask(item))
   },[])
 
@@ -95,12 +93,11 @@ const Main = ({navigation}:Props) => {
         data={tasks}
         renderItem={RenderItem}
         // options
+        keyExtractor={KeyExtractor}
         showsVerticalScrollIndicator={false}
         getItemLayout={(data,index) => (
           {length:40,offset:40*index, index}
         )}
-        keyExtractor={KeyExtractor}
-
         // style
         style={{flex:1,marginBottom:Platform.OS === 'ios'? 20 : 0}}
         // footer

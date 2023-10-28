@@ -6,17 +6,10 @@
  */
 
 import React from 'react';
-import {
-  Pressable,
-  SafeAreaView,
-  Text,
-  ViewStyle,
 
-} from 'react-native';
 import Navigation from './src/navigation/Navigation';
+
 function App(): JSX.Element {
-
-
   return (
     <Navigation/>
   );
