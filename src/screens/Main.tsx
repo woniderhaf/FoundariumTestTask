@@ -1,16 +1,15 @@
 
 import { Alert, FlatList, ListRenderItem, Platform, StyleSheet, Text, View } from 'react-native'
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { IStack } from '../navigation/Navigation'
 import { getCards } from '../Helpers/Http';
 import Card from '../components/Card';
 import { AddCard } from '../Helpers/AddCard';
-import Animated from 'react-native-reanimated';
 import { ETaskTypes, ITask } from '../interfaces/ITask.interface';
 import { Declination } from '../Helpers/Declination';
 import { ICard } from '../interfaces/Card.interface';
-import { IAddCard, TAddCard } from '../interfaces/AddCard.interface';
+import { IAddCard } from '../interfaces/AddCard.interface';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<IStack,'Main'>;
 type Props = {
@@ -108,10 +107,6 @@ const Main = ({navigation}:Props) => {
   )
 }
 
-
-
-export default Main
-
 const styles = StyleSheet.create({
   componentStyle:{
     margin:10
@@ -123,3 +118,5 @@ const styles = StyleSheet.create({
     color:"#000"
   }
 })
+
+export default Main

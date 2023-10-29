@@ -1,4 +1,3 @@
-
 import { ITask } from "./ITask.interface"
 
 export interface ICard {

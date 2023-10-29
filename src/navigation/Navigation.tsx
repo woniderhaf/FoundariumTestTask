@@ -14,8 +14,7 @@ const Navigation:FC = () => {
   const Stack = createNativeStackNavigator<IStack>()
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Start" 
-        >
+      <Stack.Navigator initialRouteName="Start">
         <Stack.Screen name="Start" component={Start}/>
         <Stack.Screen name="Main" component={Main} options={{headerTitle:"Лист Задач", headerTitleAlign:'center'}}/>
       </Stack.Navigator>

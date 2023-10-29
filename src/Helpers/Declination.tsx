@@ -1,5 +1,4 @@
 
-
 // функция, которая в зависимости от числа склоняет слово
 
 export const  Declination = (number:number, words:[string,string,string]): string => {

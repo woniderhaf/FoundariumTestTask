@@ -2,15 +2,6 @@ import axios from "axios";
 
 // для получения данных использую api тестовых данных  - MOKKY.DEV
 
-// тип ответа с бэкенда 
-// type GETRESPONSE<T> = {
-//   items: [
-//     {
-//       results: T,
-//       success:boolean
-//     }
-//   ]
-// }
 type GETRESPONSE<T> = {
   items: T
 }
