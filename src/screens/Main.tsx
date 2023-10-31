@@ -10,6 +10,7 @@ import { ETaskTypes, ITask } from '../interfaces/ITask.interface';
 import { Declination } from '../Helpers/Declination';
 import { ICard } from '../interfaces/Card.interface';
 import { IAddCard } from '../interfaces/AddCard.interface';
+import Animated from 'react-native-reanimated';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<IStack,'Main'>;
 type Props = {
@@ -87,13 +88,16 @@ const Main = ({navigation}:Props) => {
   //return 
   return (
     <View style={{backgroundColor:'#FFF',flex:1}}>
-      <FlatList
+      <Animated.FlatList
         // required 
         data={tasks}
         renderItem={RenderItem}
         // options
         keyExtractor={KeyExtractor}
         showsVerticalScrollIndicator={false}
+        onViewableItemsChanged={({viewableItems}) => {
+          console.log(viewableItems);
+        }}
         getItemLayout={(data,index) => (
           {length:40,offset:40*index, index}
         )}
